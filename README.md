@@ -1,4 +1,4 @@
-# Материалы для моих видео в Youtube
+# DevOps tools
 
 * **[K8s step by step](k8s-step-by-step)** - установка небольшого кластера шаг за шагом.
   * **[Kubernetes offline installation by kubespray](k8s-step-by-step/07-starter)**
