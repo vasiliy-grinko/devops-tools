@@ -27,7 +27,7 @@ openresty-art - тестовый helm chart, пример для демонст�
 
 ## Использование чарта
 
-    helm repo add openresty-art https://raw.githubusercontent.com/BigKAA/youtube/master/helm/charts
+    helm repo add openresty-art https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/helm/charts
     helm repo update
     helm repo list
     helm search repo | grep openresty

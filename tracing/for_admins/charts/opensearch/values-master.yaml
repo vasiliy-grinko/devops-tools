@@ -104,7 +104,7 @@ persistence:
   enableInitChown: true
   labels:
     enabled: false
-  storageClass: "managed-nfs-storage"
+  storageClass: "local-path"
   accessModes:
     - ReadWriteOnce
   size: 8Gi
@@ -183,11 +183,11 @@ ingress:
     nginx.ingress.kubernetes.io/proxy-ssl-verify: "off"
   path: /
   hosts:
-    - esapi.kryukov.local
+    - esapi.bart.team
   tls:
     - secretName: master-tls
       hosts:
-        - esapi.kryukov.local
+        - esapi.bart.team
 
 ## Set optimal sysctl's. This requires privilege. Can be disabled if
 ## the system has already been preconfigured. (Ex: https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html)

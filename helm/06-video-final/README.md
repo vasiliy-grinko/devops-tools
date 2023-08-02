@@ -25,7 +25,7 @@
 Начнём с простого, добавим дополнительную информацию в Chart.yaml.
 
 ```yaml
-home: https://github.com/BigKAA/youtube/tree/master/helm
+home: https://github.com/vasiliy-grinko/devops-tools/tree/master/helm
 maintainers:
   - name: Artur Kryukov
     email: artur@kryukov.biz
@@ -64,15 +64,15 @@ README.md - это основной файл документации по ча�
 openresty-art-0.1.0.tgz. Перейдём в эту директорию и создадим 
 файл index.yaml
 
-    helm repo index . --url https://raw.githubusercontent.com/BigKAA/youtube/master/helm/charts
+    helm repo index . --url https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/helm/charts
 
 Запушим в github эту директорию со всеми файлами.
 
-После этого можно пользоваться чартом, находящимся в https://raw.githubusercontent.com/BigKAA/youtube/master/helm/charts 
+После этого можно пользоваться чартом, находящимся в https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/helm/charts 
 
 Подключим репозиторий.
 
-    helm repo add openresty-art https://raw.githubusercontent.com/BigKAA/youtube/master/helm/charts
+    helm repo add openresty-art https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/helm/charts
     helm repo update
     helm repo list
     helm search repo | grep openresty

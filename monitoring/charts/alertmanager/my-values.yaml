@@ -7,13 +7,13 @@ alertmanager:
     annotations:
       certmanager.k8s.io/cluster-issuer: monitoring-issuer
     hosts:
-      - host: am.kryukov.local
+      - host: am.bart.team
         paths:
           - path: /
             pathType: Prefix
     tls:
       - hosts:
-          - am.kryukov.local
+          - am.bart.team
         secretName: am-tls
   resources:
     limits:
@@ -24,7 +24,7 @@ alertmanager:
       memory: 32Mi
   persistence:
     enabled: true
-    storageClass: "managed-nfs-storage"
+    storageClass: "local-path"
     accessModes:
       - ReadWriteOnce
     size: 50Mi

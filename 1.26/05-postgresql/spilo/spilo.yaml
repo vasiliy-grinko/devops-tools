@@ -122,7 +122,7 @@ spec:
         application: spilo
         spilo-cluster: *cluster_name
     spec:
-      storageClassName: managed-nfs-storage
+      storageClassName: local-path
       accessModes:
       - ReadWriteOnce
       resources:
@@ -139,7 +139,7 @@ spec:
       resources:
         requests:
           storage: 2Gi
-      storageClassName: managed-nfs-storage
+      storageClassName: local-path
 
 ---
 apiVersion: v1

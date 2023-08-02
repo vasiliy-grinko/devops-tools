@@ -19,22 +19,22 @@ spec:
           value: "false"
 
         - name: externalURL
-          value: http://harbor.kryukov.local
+          value: http://harbor.bart.team
 
         - name: persistence.persistentVolumeClaim.registry.storageClass
-          value: managed-nfs-storage
+          value: local-path
         - name: persistence.persistentVolumeClaim.registry.size
           value: 5Gi
         - name: persistence.persistentVolumeClaim.chartmuseum.storageClass
-          value: managed-nfs-storage
+          value: local-path
         - name: persistence.persistentVolumeClaim.chartmuseum.size
           value: 1Gi
         - name: persistence.persistentVolumeClaim.jobservice.storageClass
-          value: managed-nfs-storage
+          value: local-path
         - name: persistence.persistentVolumeClaim.jobservice.size
           value: 1Gi
         - name: persistence.persistentVolumeClaim.trivy.storageClass
-          value: managed-nfs-storage
+          value: local-path
         - name: persistence.persistentVolumeClaim.trivy.size
           value: 1Gi
 

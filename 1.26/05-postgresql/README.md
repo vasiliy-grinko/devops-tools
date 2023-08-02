@@ -15,7 +15,7 @@ kubectl -n pg apply -f pgadmin/manifests
 
 ## spilo
 
-По умолчанию использует PV `storageClass: managed-nfs-storage`.
+По умолчанию использует PV `storageClass: local-path`.
 
 ```shell
 helm install pg spilo/spilo -n pg --create-namespace 

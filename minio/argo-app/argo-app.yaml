@@ -8,7 +8,7 @@ metadata:
 spec:
   project: minio
   source:
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/vasiliy-grinko/devops-tools'
     path: minio/manifests
     targetRevision: master
   destination:

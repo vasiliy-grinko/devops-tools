@@ -14,21 +14,21 @@ spec:
     helm:
       parameters:
         - name: global.storageClass
-          value: managed-nfs-storage
+          value: local-path
         - name: global.redis.password
-          value: 'qUwTt8g9it'
+          value: 'Rotterdam-2012'
         - name: image.registry
           value: quay.io
         - name: image.tag
           value: 6.2.3-debian-10-r6
         - name: master.persistence.storageClass
-          value: managed-nfs-storage
+          value: local-path
         - name: master.priorityClassName
           value: high-priority
         - name: pdb.create
           value: 'true'
         - name: replica.persistence.storageClass
-          value: managed-nfs-storage
+          value: local-path
         - name: replica.priorityClassName
           value: high-priority
         - name: replica.replicaCount

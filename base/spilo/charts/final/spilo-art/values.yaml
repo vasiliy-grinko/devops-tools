@@ -129,7 +129,7 @@ backup:
   # Время выполнения скрипта резервного копирования в формате crontab
   crontabTime: "00 01 * * *"
   PVC:
-    # storageClassName: "managed-nfs-storage"
+    # storageClassName: "local-path"
     accessModes:
     - ReadWriteMany
     resources:

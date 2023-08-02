@@ -202,7 +202,7 @@ data:
   POSTGRESQL_USERNAME: "harbor"
   POSTGRESQL_DATABASE: "harborcore"
   POSTGRESQL_SSLMODE: "disable"
-  EXT_ENDPOINT: "http://harbor.kryukov.local"
+  EXT_ENDPOINT: "http://harbor.bart.team"
   CORE_URL: "http://system-harbor-core:80"
   JOBSERVICE_URL: "http://system-harbor-jobservice"
   REGISTRY_URL: "http://system-harbor-registry:5000"
@@ -291,7 +291,7 @@ data:
       workers: 10
       backend: "redis"
       redis_pool:
-        redis_url: "redis://redis:qUwTt8g9it@system-redis-master:6379/1"
+        redis_url: "redis://redis:Rotterdam-2012@system-redis-master:6379/1"
         namespace: "harbor_job_service_namespace"
     job_loggers:
       - name: "FILE"
@@ -447,7 +447,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: managed-nfs-storage
+  storageClassName: local-path
 ---
 # Source: harbor/templates/jobservice/jobservice-pvc.yaml
 kind: PersistentVolumeClaim
@@ -468,7 +468,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: managed-nfs-storage
+  storageClassName: local-path
 ---
 # Source: harbor/templates/registry/registry-pvc.yaml
 kind: PersistentVolumeClaim
@@ -489,7 +489,7 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  storageClassName: managed-nfs-storage
+  storageClassName: local-path
 ---
 # Source: harbor/templates/chartmuseum/chartmuseum-svc.yaml
 apiVersion: v1
@@ -1639,7 +1639,7 @@ spec:
       spec:
         accessModes:
           - "ReadWriteOnce"
-        storageClassName: managed-nfs-storage
+        storageClassName: local-path
         resources:
           requests:
             storage: "5Gi"
@@ -1706,7 +1706,7 @@ spec:
                 name: system-harbor-core
                 port:
                   name: http
-      host: harbor.kryukov.local
+      host: harbor.bart.team
 ---
 # Source: harbor/templates/ingress/ingress.yaml
 apiVersion: networking.k8s.io/v1
@@ -1735,4 +1735,4 @@ spec:
                 name: system-harbor-notary-server
                 port:
                   number: 4443
-      host: notary.kryukov.local
+      host: notary.bart.team

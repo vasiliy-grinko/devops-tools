@@ -154,13 +154,13 @@ data:
 $ kubectl get storageclasses
 NAME                  PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
 local-path            rancher.io/local-path   Delete          WaitForFirstConsumer   false                  6d23h
-managed-nfs-storage   kryukov.local/nfs       Delete          Immediate              false                  7d21h
+local-path   bart.team/nfs       Delete          Immediate              false                  7d21h
 ```
 
 Я предполагаю, что файлы базы данных будут храниться на локальных дисках нод
 кластера. Поэтому для них будет использоваться StorageClass local-path.
 А резервные копии будут помещаться на сетевой (NFS) диск. Для них будем использовать
-StorageClass managed-nfs-storage.
+StorageClass local-path.
 
 Добавим соответствующие параметры в разделе `volumeClaimTemplates`.
 
@@ -189,7 +189,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: zalandodemo01-backup
 spec:
-  storageClassName: managed-nfs-storage
+  storageClassName: local-path
   accessModes:
     - ReadWriteMany
   resources:
@@ -212,9 +212,9 @@ spec:
 Сначала добавим labels на ноды, где предполагается запускать поды spilo.
 
 ```shell
-kubectl label nodes ws2.kryukov.local db=spilo
-kubectl label nodes ws3.kryukov.local db=spilo
-kubectl label nodes ws4.kryukov.local db=spilo
+kubectl label nodes ws2.bart.team db=spilo
+kubectl label nodes ws3.bart.team db=spilo
+kubectl label nodes ws4.bart.team db=spilo
 ```
 
 Добавим affinity в StatefulSet.

@@ -73,7 +73,7 @@ spec:
             - mountPath: /var/lib/postgresql/data
               name: postgresdata
       nodeSelector: 
-        kubernetes.io/hostname: db1.kryukov.local
+        kubernetes.io/hostname: db1.bart.team
       tolerations:
         - key: "db"
           operator: "Equal"
@@ -84,7 +84,7 @@ spec:
       name: postgresdata
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "managed-nfs-storage"
+      storageClassName: "local-path"
       resources:
         requests:
           storage: 10Gi 

@@ -18,7 +18,7 @@ spec:
     accessmode: ReadWriteMany
     name: ""
     size: 10G
-    storageclass: "managed-nfs-storage"
+    storageClass: "local-path"
     storagetype: dynamic
     supplementalgroups: ""
   PrimaryStorage:

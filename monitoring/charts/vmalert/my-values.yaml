@@ -15,13 +15,13 @@ victoria-metrics-alert:
       annotations:
         certmanager.k8s.io/cluster-issuer: monitoring-issuer
       hosts:
-        - name: vmalert.kryukov.local
+        - name: vmalert.bart.team
           path: /
           port: http
       pathType: Prefix
       tls:
         - hosts:
-            - vmalert.kryukov.local
+            - vmalert.bart.team
           secretName: vmalert-tls
     resources:
       limits:

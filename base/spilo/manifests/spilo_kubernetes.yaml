@@ -141,7 +141,7 @@ spec:
 #        spilo-cluster: *cluster_name
 #      name: backup
 #    spec:
-#      storageClassName: managed-nfs-storage
+#      storageClassName: local-path
 #      accessModes:
 #        - ReadWriteOnce
 #      resources:
@@ -153,7 +153,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: zalandodemo01-backup
 spec:
-  storageClassName: managed-nfs-storage
+  storageClassName: local-path
   accessModes:
     - ReadWriteMany
   resources:

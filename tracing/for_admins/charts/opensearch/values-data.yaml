@@ -105,7 +105,7 @@ persistence:
   enableInitChown: true
   labels:
     enabled: false
-  storageClass: "managed-nfs-storage"
+  storageClass: "local-path"
   accessModes:
     - ReadWriteOnce
   size: 8Gi

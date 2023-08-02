@@ -1,6 +1,6 @@
 elasticsearch:
   global:
-    storageClass: "managed-nfs-storage"
+    storageClass: "local-path"
     elasticsearch:
       service:
         name: elasticsearch
@@ -35,7 +35,7 @@ elasticsearch:
   ingress:
     enabled: true
     pathType: Prefix
-    hostname: es.kryukov.local
+    hostname: es.bart.team
     path: /
     ingressClassName: "system-ingress"
   master:
@@ -65,7 +65,7 @@ elasticsearch:
           topologyKey: kubernetes.io/hostname
     persistence:
       enabled: true
-      storageClass: "managed-nfs-storage"
+      storageClass: "local-path"
       accessModes:
         - ReadWriteOnce
       size: 8Gi
@@ -97,7 +97,7 @@ elasticsearch:
           topologyKey: kubernetes.io/hostname
     persistence:
       enabled: true
-      storageClass: "managed-nfs-storage"
+      storageClass: "local-path"
       accessModes:
         - ReadWriteOnce
       size: 8Gi
@@ -170,7 +170,7 @@ elasticsearch:
           truststorePassword: "password"
     persistence:
       enabled: true
-      storageClass: "managed-nfs-storage"
+      storageClass: "local-path"
       accessModes:
         - ReadWriteOnce
       size: 5Gi
@@ -184,5 +184,5 @@ elasticsearch:
     ingress:
       enabled: true
       pathType: Prefix
-      hostname: kibana.kryukov.local
+      hostname: kibana.bart.team
       path: /

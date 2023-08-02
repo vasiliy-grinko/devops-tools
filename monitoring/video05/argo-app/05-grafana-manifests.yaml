@@ -11,7 +11,7 @@ spec:
     server: 'https://kubernetes.default.svc'
   source:
     path: monitoring/video05/manifests/grafana
-    repoURL: 'https://github.com/BigKAA/youtube'
+    repoURL: 'https://github.com/vasiliy-grinko/devops-tools'
     targetRevision: master
   project:  monitoring
   syncPolicy:

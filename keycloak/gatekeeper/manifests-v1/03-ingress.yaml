@@ -10,10 +10,10 @@ spec:
   ingressClassName: "system-ingress"
   tls:
     - hosts:
-        - application.kryukov.local
+        - application.bart.team
       secretName: app-tls
   rules:
-    - host: "application.kryukov.local"
+    - host: "application.bart.team"
       http:
         paths:
           - pathType: Prefix

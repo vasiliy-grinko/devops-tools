@@ -182,7 +182,7 @@ vector:
 
   persistence:
     enabled: true
-    storageClassName: "managed-nfs-storage"
+    storageClassName: "local-path"
     accessModes:
       - ReadWriteOnce
     size: 10Gi

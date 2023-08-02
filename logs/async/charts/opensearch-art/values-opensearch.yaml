@@ -194,7 +194,7 @@ opensearch:
     #   set, choosing the default provisioner.  (gp2 on AWS, standard on
     #   GKE, AWS & OpenStack)
     #
-    storageClass: "managed-nfs-storage"
+    storageClass: "local-path"
     accessModes:
       - ReadWriteOnce
     size: 8Gi
@@ -357,7 +357,7 @@ opensearch:
       # kubernetes.io/tls-acme: "true"
     path: /
     hosts:
-      - es.kryukov.local
+      - es.bart.team
     tls: []
     #  - secretName: chart-example-tls
     #    hosts:
@@ -495,7 +495,7 @@ opensearch-dashboards:
       # kubernetes.io/tls-acme: "true"
     ingressClassName: "system-ingress"
     hosts:
-      - host: kibana.kryukov.local
+      - host: kibana.bart.team
         paths:
           - path: /
             backend:

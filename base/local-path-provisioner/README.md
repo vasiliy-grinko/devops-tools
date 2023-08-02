@@ -66,11 +66,11 @@ _Небольшое замечание. Раньше, для запрета ис
       "paths":["/data/local-path-provisioner"]
     },
     {
-      "node":"ws1.kryukov.local",
+      "node":"ws1.bart.team",
       "paths":["/data", "/data2"]
     },
     {
-      "node":"ws2.kryukov.local",
+      "node":"ws2.bart.team",
       "paths":[]
     }
   ]
@@ -174,7 +174,7 @@ volume-test-pvc   Pending                                      local-path     17
 
 ```yaml
   nodeSelector:
-    kubernetes.io/hostname: ws1.kryukov.local
+    kubernetes.io/hostname: ws1.bart.team
 ```
 
 ```shell
@@ -257,8 +257,8 @@ kubectl apply -f manifests/02-example-pod.yaml
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - ws3.kryukov.local
-                      - ws4.kryukov.local
+                      - ws3.bart.team
+                      - ws4.bart.team
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             - labelSelector:

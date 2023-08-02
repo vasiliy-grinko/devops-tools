@@ -68,7 +68,7 @@ spec:
         - name: kryukov-local
       containers:
       - name: jenkins
-        image: n.kryukov.local/bigkaa/jenkins:v0.1
+        image: n.bart.team/bigkaa/jenkins:v0.1
         imagePullPolicy: IfNotPresent
         env:
           - name: JAVA_OPTS
@@ -114,7 +114,7 @@ spec:
         name: jenkins-home
       spec:
         accessModes: [ "ReadWriteOnce" ]
-        storageClassName: "managed-nfs-storage"
+        storageClassName: "local-path"
         resources:
           requests:
             storage: 8Gi
@@ -133,7 +133,7 @@ metadata:
     section: tools
 spec:
   rules:
-    - host: j.kryukov.local
+    - host: j.bart.team
       http:
         paths:
           - backend:

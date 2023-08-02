@@ -71,7 +71,7 @@ kubectl apply -f calico.yaml
 Запускаем nginx на 3-ей ноде кластера.
 
     kubectl run --image=nginx:latest nginx \
-        --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "kubernetes.io/hostname": "ip-174-163.kryukov.local" }}}'
+        --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "kubernetes.io/hostname": "ip-174-163.bart.team" }}}'
 
 Смотрим, какой ip адрес был выдан поду
 
@@ -92,13 +92,13 @@ calicoctl позволяет управлять параметрами сети.
 драйвера.
 
 ```shell script
-curl -s https://raw.githubusercontent.com/BigKAA/youtube/master/net/02-calico/01-install-calicoctl.sh | bash
+curl -s https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/net/02-calico/01-install-calicoctl.sh | bash
 ```
 
 Создаем конфигурационный файл программы.
 
 ```shell script
-curl -s https://raw.githubusercontent.com/BigKAA/youtube/master/net/02-calico/02-calicoctl.cfg -o /etc/calico/calicoctl.cfg 
+curl -s https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/net/02-calico/02-calicoctl.cfg -o /etc/calico/calicoctl.cfg 
 ```
 
 Проверяем работу программы
@@ -205,7 +205,7 @@ Calico будет самостоятельно добавлять и удаля�
 
     kubectl label nodes ip-218-161 location=datacenter1
     kubectl label nodes ip-218-162 location=datacenter1
-    kubectl label nodes ip-174-163.kryukov.local location=datacenter2
+    kubectl label nodes ip-174-163.bart.team location=datacenter2
     kubectl get nodes --show-labels
 
 Создаём два пула:
@@ -286,7 +286,7 @@ spec:
 Запускаем nginx на третей ноде:
 
     kubectl run --image=nginx:latest nginx \
-        --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "kubernetes.io/hostname": "ip-174-163.kryukov.local" }}}'
+        --overrides='{"apiVersion": "v1", "spec": {"nodeSelector": { "kubernetes.io/hostname": "ip-174-163.bart.team" }}}'
 
 Смотрим что получилось.
 

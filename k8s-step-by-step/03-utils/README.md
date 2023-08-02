@@ -55,7 +55,7 @@ https://learn.netdata.cloud/docs
 https://github.com/netdata/helmchart/tree/master/charts/netdata
 
     helm install --set image.pullPolicy=IfNotPresent --set ingress.enabled=false \
-    --set parent.database.storageclass=managed-nfs-storage --set parent.alarms.storageclass=managed-nfs-storage \
+    --set parent.database.storageclass=local-path --set parent.alarms.storageclass=local-path \
     --set image.tag=v1.30.0 --set sd.image.pullPolicy=IfNotPresent  \
     --set child.resources.limits.cpu=1 --set child.resources.limits.memory=1024Mi \
     --set child.resources.requests.cpu=0\.2 --set child.resources.requests.memory=128Mi \

@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: semaphore
 spec:
-  storageClassName: "managed-nfs-storage"
+  storageClassName: "local-path"
   accessModes:
     - ReadWriteMany
   resources:

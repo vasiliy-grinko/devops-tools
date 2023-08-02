@@ -1,7 +1,7 @@
 kafka:
   enabled: true
   global:
-    storageClass: "managed-nfs-storage"
+    storageClass: "local-path"
 
   nameOverride: "kafka"
   fullnameOverride: "kafka"
@@ -163,7 +163,7 @@ kafka:
   persistence:
     enabled: true
     existingClaim: ""
-    storageClass: "managed-nfs-storage"
+    storageClass: "local-path"
     accessModes:
       - ReadWriteOnce
     size: 8Gi
@@ -218,7 +218,7 @@ kafka:
     replicaCount: 2
     persistence:
       enabled: true
-      storageClass: "managed-nfs-storage"
+      storageClass: "local-path"
       accessModes:
         - ReadWriteOnce
       size: 8Gi

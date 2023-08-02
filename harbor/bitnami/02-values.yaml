@@ -29,51 +29,41 @@ service:
     enabled: false
 
 ingress:
-  enabled: true
+  enabled: false
 
-  hosts:
-    core: harbor.kryukov.local
-    notary: notary.kryukov.local
-  annotations:
-    ingress.kubernetes.io/ssl-redirect: 'true'
-    ingress.kubernetes.io/proxy-body-size: '0'
-    nginx.ingress.kubernetes.io/ssl-redirect: 'true'
-    nginx.ingress.kubernetes.io/proxy-body-size: '0'
-    kubernetes.io/ingress.class: 'system-ingress'
-
-externalURL: http://harbor.kryukov.local
+externalURL: http://harbor.bart.team
 
 persistence:
   enabled: true
   persistentVolumeClaim:
     registry:
       existingClaim: ''
-      storageClass: 'managed-nfs-storage'
+      storageClass: 'hcloud-volumes'
       subPath: ''
       accessMode: ReadWriteOnce
       size: 5Gi
     jobservice:
       existingClaim: ''
-      storageClass: 'managed-nfs-storage'
+      storageClass: 'hcloud-volumes'
       subPath: ''
       accessMode: ReadWriteOnce
       size: 1Gi
     chartmuseum:
       existingClaim: ''
-      storageClass: 'managed-nfs-storage'
+      storageClass: 'hcloud-volumes'
       subPath: ''
       accessMode: ReadWriteOnce
       size: 5Gi
     trivy:
-      storageClass: 'managed-nfs-storage'
+      storageClass: 'hcloud-volumes'
       accessMode: ReadWriteOnce
       size: 5Gi
 
-logLevel: debug
+logLevel: info
 
 ## The initial password of Harbor admin. Change it from portal after launching Harbor
 ##
-harborAdminPassword: password01
+harborAdminPassword: Rotterdam-2012
 
 portal:
   resources:
@@ -141,8 +131,8 @@ trivy:
   enabled: true
   resources:
     requests:
-      cpu: 200m
-      memory: 512Mi
+      cpu: 50m
+      memory: 200Mi
     limits:
       cpu: 1
       memory: 1Gi
@@ -170,7 +160,7 @@ redis:
 externalRedis:
   host: system-redis-master
   port: 6379
-  password: 'qUwTt8g9it'
+  password: 'Rotterdam-2012'
 
 postgresql:
   enabled: false

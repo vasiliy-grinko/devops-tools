@@ -15,7 +15,7 @@
 ### Устанавливаем докер
 
 ```shell script
-curl -s https://raw.githubusercontent.com/BigKAA/youtube/master/net/01-install/00-install-docker-ce8.sh | bash
+curl -s https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/net/01-install/00-install-docker-ce8.sh | bash
 docker version
 ```
 
@@ -26,13 +26,13 @@ docker version
 ##### Мастер нода
 
 ```shell script
-curl -s https://raw.githubusercontent.com/BigKAA/youtube/master/net/01-install/01-install-k8s-masternode-ce8.sh | bash
+curl -s https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/net/01-install/01-install-k8s-masternode-ce8.sh | bash
 ```
 
 ##### Worker ноды
 
 ```shell script
-curl -s https://raw.githubusercontent.com/BigKAA/youtube/master/net/01-install/02-install-k8s-workernode-ce8.sh | bash
+curl -s https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/net/01-install/02-install-k8s-workernode-ce8.sh | bash
 ```
 
 #### Мастер нода.
@@ -66,7 +66,7 @@ mode: ipvs # iptables
 * Программу, которая будет использоваться для NAT преобразований.
 
 ```shell script
-curl -s https://raw.githubusercontent.com/BigKAA/youtube/master/net/01-install/03-kube-config.yaml -o kube-config.yaml
+curl -s https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/net/01-install/03-kube-config.yaml -o kube-config.yaml
 ```
 
 Тестовый запуск установки, ищем ошибки.
@@ -88,7 +88,7 @@ cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 ```shell script
 kubectl get nodes
 NAME                       STATUS     ROLES    AGE     VERSION
-ip-218-161.kryukov.local   NotReady   master   2m32s   v1.19.3
+ip-218-161.bart.team   NotReady   master   2m32s   v1.19.3
 ```
 
 #### Worker нода

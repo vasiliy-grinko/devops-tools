@@ -49,7 +49,7 @@ configKubernetes:
 
 configLoadBalancer:
   # DNS zone for cluster DNS name when load balancer is configured for cluster
-  db_hosted_zone: kryukov.local
+  db_hosted_zone: bart.team
 ```
 
 Пользователи. Мы не будем включать `PostgresTeam CR`.
@@ -123,7 +123,7 @@ ingress:
     # kubernetes.io/tls-acme: "true"
   ingressClassName: "system-ingress"
   hosts:
-    - host: operator.kryukov.local
+    - host: operator.bart.team
       paths: [""]
 ```
 

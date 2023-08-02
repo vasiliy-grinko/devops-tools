@@ -26,8 +26,8 @@ Namespace cert-manager создаётся автоматически.
 
 Во втором файле будем изменять аргументы командной строки.
 
-    # kubectl -n argocd apply -f https://raw.githubusercontent.com/BigKAA/youtube/master/argocd/argo-1.yaml
-    # kubectl -n argocd apply -f https://raw.githubusercontent.com/BigKAA/youtube/master/argocd/argo-2.yaml
+    # kubectl -n argocd apply -f https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/argocd/argo-1.yaml
+    # kubectl -n argocd apply -f https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/master/argocd/argo-2.yaml
 
 ## Настраиваем ingress для доступа.
 
@@ -49,10 +49,10 @@ Namespace cert-manager создаётся автоматически.
 
 ## Пароль админа
 
-Добавим в /etc/hosts имя argocd.kryukov.local
+Добавим в /etc/hosts имя argocd.bart.team
 
     # kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d ; echo
-    # argocd login argocd.kryukov.local:31443 --grpc-web
+    # argocd login argocd.bart.team:31443 --grpc-web
     # argocd account update-password --grpc-web
 
 ## Добавление пользователя
@@ -77,12 +77,12 @@ Namespace cert-manager создаётся автоматически.
 
 Логинимся новым пользователем в систему
 
-    # argocd login argocd.kryukov.local:31443 --grpc-web
+    # argocd login argocd.bart.team:31443 --grpc-web
     # argocd cluster list
 
 Заходим в WEB интерфейс
 
-    https://argocd.kryukov.local:31443/
+    https://argocd.bart.team:31443/
 
 ## Ссылка на видео.
 

@@ -34,7 +34,7 @@ spec:
           - --storage.tsdb.path=/prometheus
           - --web.console.libraries=/usr/share/prometheus/console_libraries
           - --web.console.templates=/usr/share/prometheus/consoles
-          - --web.external-url=http://mon.kryukov.local:31080/prometheus/
+          - --web.external-url=http://mon.bart.team:31080/prometheus/
         volumeMounts:
           - name: prometheus-config-volume
             mountPath: /etc/prometheus/prometheus.yml
@@ -59,7 +59,7 @@ spec:
         name: data
       spec:
         accessModes: [ "ReadWriteOnce" ]
-        storageClassName: "managed-nfs-storage"
+        storageClassName: "local-path"
         resources:
           requests:
             storage: 10Gi

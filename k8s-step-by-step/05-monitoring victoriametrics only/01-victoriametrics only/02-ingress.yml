@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - mon.kryukov.local
+        - mon.bart.team
       secretName: mon-tls
   rules:
-    - host: "mon.kryukov.local"
+    - host: "mon.bart.team"
       http:
         paths:
           - pathType: Prefix

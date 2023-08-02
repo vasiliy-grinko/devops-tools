@@ -10,7 +10,7 @@ server:
     selfScrapeInterval: "15s"
     loggerLevel: "INFO"
   persistentVolume:
-    storageClass: "managed-nfs-storage"
+    storageClass: "local-path"
     size: "10Gi"
   resources:
     requests:
@@ -25,13 +25,13 @@ server:
       # ingress.kubernetes.io/rewrite-target: "/"
       certmanager.k8s.io/cluster-issuer: monitoring-issuer
     hosts:
-      - name: "vm.kryukov.local"
+      - name: "vm.bart.team"
         path: /
         port: 9090
     tls:
       - secretName: "mon-tls"
         hosts:
-          - vm.kryukov.local
+          - vm.bart.team
     ingressClassName: system-ingress
   statefulSet:
     enabled: true

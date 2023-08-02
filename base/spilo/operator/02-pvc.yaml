@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: test1-backup
 spec:
-  storageClassName: managed-nfs-storage
+  storageClassName: local-path
   accessModes:
     - ReadWriteMany
   resources:

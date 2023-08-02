@@ -4,7 +4,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: fluentd-router-pvc
 spec:
-  storageClassName: "managed-nfs-storage"
+  storageClassName: "local-path"
   accessModes:
     - ReadWriteMany
   resources:

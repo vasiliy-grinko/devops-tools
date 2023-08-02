@@ -2,12 +2,12 @@
 
 В моём стенде будет 8 виртуальных машин.
 
-* **master.kryukov.local** (RAM 1GB, CPU 1) - вспомогательная машина. 
+* **master.bart.team** (RAM 1GB, CPU 1) - вспомогательная машина. 
   * Кеширующий DNS сервер для машин тестового стенда.
-  * Поддержка зоны kryukov.local.
-* **control{1,2,3}.kryukov.local** (RAM 4GB, CPU 4) - control nodes кластера kubernetes.
-* **worker{1,2,3}.kryukov.local** (RAM 8GB, CPU 6) - общие worker nodes кластера kubernetes.
-* **db1.kryukov.local (RAM 4GB, CPU 4)** - дополнительная worker node.
+  * Поддержка зоны bart.team.
+* **control{1,2,3}.bart.team** (RAM 4GB, CPU 4) - control nodes кластера kubernetes.
+* **worker{1,2,3}.bart.team** (RAM 8GB, CPU 6) - общие worker nodes кластера kubernetes.
+* **db1.bart.team (RAM 4GB, CPU 4)** - дополнительная worker node.
 
 На всех машинах, кроме master, установлен AlmaLinux 8.6.
 
@@ -19,7 +19,7 @@
 
 На машине master установлен DNS server BIND.
 
-В файл `/etc/named.conf` добавлена поддержка двух зон: `kryukov.local` и `218.168.192.in-addr.arpa`.
+В файл `/etc/named.conf` добавлена поддержка двух зон: `bart.team` и `218.168.192.in-addr.arpa`.
 
 ```
 options {
@@ -50,9 +50,9 @@ zone "." IN {
         type hint;
         file "named.ca";
 };
-zone "kryukov.local" IN {
+zone "bart.team" IN {
         type master;
-        file "kryukov.local";
+        file "bart.team";
 };
 zone "218.168.192.in-addr.arpa" IN {
         type master;
@@ -64,11 +64,11 @@ include "/etc/named.root.key";
 
 Файлы описания зон находятся в директории `/var/named`.
 
-kryukov.local:
+bart.team:
 
 ```
 $TTL 86400
-@ IN SOA master.kryukov.local. artur.kryukov.biz. (
+@ IN SOA master.bart.team. artur.kryukov.biz. (
                                                 2022120100 ;Serial
                                                 3600 ;Refresh
                                                 1800 ;Retry
@@ -98,7 +98,7 @@ kubeapi         IN      A       192.168.218.189
 
 ```
 $TTL 86400
-@ IN SOA master.kryukov.local. artur.kryukov.biz. (
+@ IN SOA master.bart.team. artur.kryukov.biz. (
                                             2022120100 ;Serial
                                             3600 ;Refresh
                                             1800 ;Retry
@@ -106,19 +106,19 @@ $TTL 86400
                                             86400 ;Minimum TTL
 )
 
-@ IN NS master.kryukov.local.
+@ IN NS master.bart.team.
 
-170     IN      PTR master.kryukov.local.
-171     IN      PTR     control1.kryukov.local.
-172     IN      PTR     control2.kryukov.local.
-173     IN      PTR     control3.kryukov.local.
-174     IN      PTR     worker1.kryukov.local.
-175     IN      PTR     worker2.kryukov.local.
-176     IN      PTR     worker3.kryukov.local.
-177     IN      PTR     db1.kryukov.local.
+170     IN      PTR master.bart.team.
+171     IN      PTR     control1.bart.team.
+172     IN      PTR     control2.bart.team.
+173     IN      PTR     control3.bart.team.
+174     IN      PTR     worker1.bart.team.
+175     IN      PTR     worker2.bart.team.
+176     IN      PTR     worker3.bart.team.
+177     IN      PTR     db1.bart.team.
 
-180     IN      PTR     metallb.kryukov.local.
-189     IN      PTR     kubeapi.kryukov.local.
+180     IN      PTR     metallb.bart.team.
+189     IN      PTR     kubeapi.bart.team.
 ```
 
 ## NFS сервер
@@ -137,16 +137,16 @@ $TTL 86400
 описаны в файле `C:\Windows\System32\drivers\etc\hosts`:
 
 ```
-192.168.218.170 master.kryukov.local
-192.168.218.171 control1.kryukov.local
-192.168.218.172 control2.kryukov.local
-192.168.218.173 control3.kryukov.local
-192.168.218.174 worker1.kryukov.local
-192.168.218.175 worker2.kryukov.local
-192.168.218.176 worker3.kryukov.local
-192.168.218.177 db1.kryukov.local
-192.168.218.180 metallb.kryukov.local
-192.168.218.189 kubeapi.kryukov.local
+192.168.218.170 master.bart.team
+192.168.218.171 control1.bart.team
+192.168.218.172 control2.bart.team
+192.168.218.173 control3.bart.team
+192.168.218.174 worker1.bart.team
+192.168.218.175 worker2.bart.team
+192.168.218.176 worker3.bart.team
+192.168.218.177 db1.bart.team
+192.168.218.180 metallb.bart.team
+192.168.218.189 kubeapi.bart.team
 ```
 
 Включен wsl2, в котором установлен дистрибутив Ubuntu 22.04.1 LTS.

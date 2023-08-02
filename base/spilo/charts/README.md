@@ -299,7 +299,7 @@ backup:
   # Не удалять PVC после удаления чарта.
   dontDeletePvc: false
   PVC:
-    # storageClassName: "managed-nfs-storage"
+    # storageClassName: "local-path"
     accessModes:
     - ReadWriteMany
     resources:

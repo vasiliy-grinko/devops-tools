@@ -2,7 +2,7 @@
 
 https://docs.gitlab.com/charts/installation/
 
-Для создания PV в моём кластере используется NFS диск и соответствующий ему StorageClass - managed-nfs-storage.
+Для создания PV в моём кластере используется NFS диск и соответствующий ему StorageClass - local-path.
 
 ## Prerequisites
 
@@ -162,7 +162,7 @@ gitlab:
   gitaly:
     persistence:
       size: 50Gi
-      storageClass: "managed-nfs-storage"
+      storageClass: "local-path"
 ```
 
 #### Redis
@@ -184,7 +184,7 @@ metadata:
     manual: "yes"
 type: Opaque
 stringData:
-  redis-password: 'qUwTt8g9it'
+  redis-password: 'Rotterdam-2012'
 EOF
 ```
 
@@ -244,18 +244,18 @@ global:
 
 #### DNS имена
 
-Все сервисы, предоставляемы GitLab будут в домене `kryukov.local`. Для того, что бы
+Все сервисы, предоставляемы GitLab будут в домене `bart.team`. Для того, что бы
 GitLab работал нормально, вы должны предусмотреть преобразование имён для машин:
 
-* gitlab.kryukov.local
-* kas.kryukov.local
+* gitlab.bart.team
+* kas.bart.team
 
 И других сервисов, если вы их собираетесь включить.
 
 ```yaml
 global:
   hosts:
-    domain: kryukov.local
+    domain: bart.team
     https: false
     externalIP: 192.168.218.180
 ```
@@ -282,7 +282,7 @@ stringData:
   connection: |
     provider: AWS
     region: us-east-1
-    host: minio.kryukov.local
+    host: minio.bart.team
     endpoint: http://gitlab-minio:9000
     path_style: true
     aws_access_key_id: admin 
@@ -387,7 +387,7 @@ global:
     tls: false
     starttls_auto: false
     openssl_verify_mode: 'none'
-    domain: "git.kryukov.local"
+    domain: "git.bart.team"
     address: mail-relay
     port: 25
     # Говорим, что аутентификация не нужна. Главное, что чарт sidekiq написан правильно. Он поймет, что мы хотим.
@@ -397,8 +397,8 @@ global:
       secret: 'fake-mail-password'
       key: 'password'
   email:
-    from: "noreply@gitlab.kryukov.local"
-    display_name: "GitLab kryukov.local"
+    from: "noreply@gitlab.bart.team"
+    display_name: "GitLab bart.team"
 ```
 
 ## После установки

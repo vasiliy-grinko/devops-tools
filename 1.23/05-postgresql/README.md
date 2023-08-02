@@ -62,8 +62,8 @@ debug: true
 Вешаем заразы и метки на ноды кластера. Для того, что бы приземлить базу данных на нужный сервер и запретить
 деплоить на него остальные приложения.
 
-    kubectl taint nodes db1.kryukov.local db=pgsql:NoSchedule
-    kubectl label nodes db1.kryukov.local db=pgsql-main
+    kubectl taint nodes db1.bart.team db=pgsql:NoSchedule
+    kubectl label nodes db1.bart.team db=pgsql-main
 
 Для определения БД можно воспользоваться helm или kustomize. Но мы будем пользоваться последним, поскольку он лучше
 документирован и helm chart очень, очень, очень сырой.
@@ -84,7 +84,7 @@ spec:
     - name: one
       replicas: 1
       dataVolumeClaimSpec:
-        storageClassName: "managed-nfs-storage"
+        storageClassName: "local-path"
         accessModes:
         - "ReadWriteOnce"
         resources:
@@ -111,7 +111,7 @@ spec:
       - name: repo1
         volume:
           volumeClaimSpec:
-            storageClassName: "managed-nfs-storage"
+            storageClassName: "local-path"
             accessModes:
             - "ReadWriteOnce"
             resources:

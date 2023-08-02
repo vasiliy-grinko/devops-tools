@@ -23,13 +23,13 @@ victoria-metrics-agent:
 
     extraLabels: { }
     hosts:
-      - name: vmagent.kryukov.local
+      - name: vmagent.bart.team
         path: /
         port: http
     tls:
       - secretName: "vmagent-tls"
         hosts:
-          - vmagent.kryukov.local
+          - vmagent.bart.team
     pathType: Prefix
     ingressClassName: system-ingress
 
@@ -43,7 +43,7 @@ victoria-metrics-agent:
 
   persistence:
     enabled: true
-    storageClassName: managed-nfs-storage
+    storageClassName: local-path
     accessModes:
       - ReadWriteOnce
     size: 3Gi

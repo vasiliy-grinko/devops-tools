@@ -165,7 +165,7 @@ spec:
 #        spilo-cluster: *cluster_name
 #      name: backup
 #    spec:
-#      storageClassName: managed-nfs-storage
+#      storageClassName: local-path
 #      accessModes:
 #        - ReadWriteOnce
 #      resources:

@@ -13221,8 +13221,8 @@
       {
         "current": {
           "selected": false,
-          "text": "worker1.kryukov.local",
-          "value": "worker1.kryukov.local"
+          "text": "worker1.bart.team",
+          "value": "worker1.bart.team"
         },
         "datasource": {
           "type": "prometheus",

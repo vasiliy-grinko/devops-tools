@@ -144,7 +144,7 @@ spec:
         resources:
           requests:
             storage: 50Mi
-        storageClassName: managed-nfs-storage
+        storageClassName: local-path
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -159,10 +159,10 @@ spec:
   ingressClassName: system-ingress
   tls:
     - hosts:
-        - "am.kryukov.local"
+        - "am.bart.team"
       secretName: am-tls
   rules:
-    - host: "am.kryukov.local"
+    - host: "am.bart.team"
       http:
         paths:
           - path: /

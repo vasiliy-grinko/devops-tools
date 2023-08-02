@@ -8,8 +8,8 @@
 ```yaml
   grafana.ini:
     server:
-      domain: grafana.kryukov.local
-      root_url: https://grafana.kryukov.local
+      domain: grafana.bart.team
+      root_url: https://grafana.bart.team
 ```
 
 ## Автоматическое добавление dashboards
@@ -84,7 +84,7 @@
  dashboards:
     default:
       node-exporter:
-        url: 'https://raw.githubusercontent.com/BigKAA/youtube/monitoring/monitoring/video05/dashboards/node-exporter.json'
+        url: 'https://raw.githubusercontent.com/vasiliy-grinko/devops-tools/monitoring/monitoring/video05/dashboards/node-exporter.json'
 ```
 
 ### Загрузка дашборда непосредственно из чарта.

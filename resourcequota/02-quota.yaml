@@ -16,5 +16,5 @@ spec:
     services.nodeports: "0"
     # Квоты хранения
     persistentvolumeclaims: "2"
-    managed-nfs-storage.storageclass.storage.k8s.io/requests.storage: 8Gi
-    managed-nfs-storage.storageclass.storage.k8s.io/persistentvolumeclaims: "1"
+    local-path.storageclass.storage.k8s.io/requests.storage: 8Gi
+    local-path.storageclass.storage.k8s.io/persistentvolumeclaims: "1"

@@ -114,13 +114,13 @@ volumeClaim:
     name: pgdata
     storage: 2Gi
     path: /home/postgres/pgdata
-    storageClass: managed-nfs-storage
+    storageClass: local-path
   backup:
     enable: true
     name: backup
     storage: 2Gi
     path: /data/pg_wal
-    storageClass: managed-nfs-storage
+    storageClass: local-path
     crontab: '["00 01 * * * envdir /config /scripts/postgres_backup.sh {{ .Values.volumeClaim.pgdata.path }}/pgroot/data"]'
 
 # https://github.com/zalando/spilo/blob/master/ENVIRONMENT.rst

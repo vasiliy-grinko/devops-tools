@@ -81,7 +81,7 @@ spec:
       name: nexus-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      storageClassName: "managed-nfs-storage"
+      storageClassName: "local-path"
       resources:
         requests:
           storage: 8Gi
@@ -117,7 +117,7 @@ metadata:
     section: tools
 spec:
   rules:
-    - host: nexus.kryukov.local
+    - host: nexus.bart.team
       http:
         paths:
           - backend:

@@ -24,7 +24,7 @@ metadata:
 spec:
   ingressClassName: system-ingress
   rules:
-    - host: vmalert.kryukov.local
+    - host: vmalert.bart.team
       http:
         paths:
           - path: /
@@ -36,5 +36,5 @@ spec:
                   number: 8880
   tls:
     - hosts:
-        - vmalert.kryukov.local
+        - vmalert.bart.team
       secretName: vmalert-tls

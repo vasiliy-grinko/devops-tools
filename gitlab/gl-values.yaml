@@ -19,15 +19,14 @@ nginx-ingress:
 gitlab-runner:
   install: false
 
+# certmanager-issuer:
+#   email: vgrinko@bart.team
+
 global:
   minio:
     enabled: false
   # Включаем Community Edition
   edition: ce
-
-  initialRootPassword:
-    key: password
-    secret: initial-admin-password
 
   redis:
     auth:
@@ -49,15 +48,14 @@ global:
 
   ingress:
     configureCertmanager: false
-    class: system-ingress
-#    provider: nginx
+    class: traefik
     tls:
-      enabled: false
+      enabled: true
 
   hosts:
-    domain: kryukov.local
+    domain: bart.team
     https: false
-    externalIP: 192.168.218.180
+    # externalIP: 192.168.218.180
 
   appConfig:
     # https://docs.gitlab.com/charts/advanced/external-object-storage/#lfs-artifacts-uploads-packages-external-diffs-terraform-state-dependency-proxy
@@ -94,7 +92,7 @@ global:
     tls: false
     starttls_auto: false
     openssl_verify_mode: 'none'
-    domain: "git.kryukov.local"
+    domain: "gitlab.bart.team"
     address: mail-relay
     port: 25
     authentication: "none"
@@ -102,8 +100,8 @@ global:
       secret: 'fake-mail-password'
       key: 'password'
   email:
-    from: "noreply@gitlab.kryukov.local"
-    display_name: "GitLab kryukov.local"
+    from: "noreply@gitlab.bart.team"
+    display_name: "GitLab bart.team"
 
 # https://docs.gitlab.com/charts/advanced/external-object-storage/#backups
 gitlab:
@@ -115,5 +113,5 @@ gitlab:
           key: config
   gitaly:
     persistence:
-      size: 50Gi
-      storageClass: "managed-nfs-storage"
+      size: 5Gi
+      storageClass: "local-path"

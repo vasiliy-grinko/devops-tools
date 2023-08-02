@@ -30,13 +30,13 @@ spec:
     - server auth
     - client auth
   dnsNames:
-  - kryukov.local
-  - am.kryukov.local
-  - grafana.kryukov.local
-  - karma.kryukov.local
-  - vm.kryukov.local
-  - vmagent.kryukov.local
-  - vmalert.kryukov.local
+  - bart.team
+  - am.bart.team
+  - grafana.bart.team
+  - karma.bart.team
+  - vm.bart.team
+  - vmagent.bart.team
+  - vmalert.bart.team
   ipAddresses:
   - 192.168.218.174
   - 192.168.218.175

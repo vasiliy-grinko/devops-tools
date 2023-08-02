@@ -5,7 +5,7 @@ metadata:
   name: pgadmin-pvc
   namespace: pgo
   annotations:
-    volume.beta.kubernetes.io/storage-class: "managed-nfs-storage"
+    volume.beta.kubernetes.io/storage-class: "local-path"
 spec:
   accessModes:
     - ReadWriteMany
