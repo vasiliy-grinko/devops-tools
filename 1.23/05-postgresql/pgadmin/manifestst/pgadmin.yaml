@@ -11,7 +11,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 500Mi
+      storage: 300Mi
 ---
 kind: Service
 apiVersion: v1
@@ -67,13 +67,12 @@ spec:
             protocol: TCP
         env:
           - name: PGADMIN_DEFAULT_EMAIL
-            value: "artur@kryukov.biz"
+            value: "vgrinko@bart.team"
           - name: PGADMIN_DEFAULT_PASSWORD
             value: "password"
         resources:
           requests:
-            memory: "100Mi"
-            cpu: "0.2"
+            memory: "10Mi"
           limits:
             memory: "800Mi"
             cpu: "0.8"
@@ -92,7 +91,7 @@ kind: Ingress
 metadata:
   name: pgadmin
 spec:
-  ingressClassName: system-ingress
+  ingressClassName: traefic
   rules:
     - host: pg.bart.team
       http:

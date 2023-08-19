@@ -11,11 +11,10 @@ metadata:
   namespace: gitlab
 type: Opaque
 stringData:
-  # Этот способ регистрации устаревший, с некоторыми проблемами. Поле всегда оставляем пустым.
   runner-registration-token: ""
   
   # тут подставляем полученный в WEB интерфейсе токен
-  runner-token: "glrt-haAD9no41YLEnJfNEdJu"
+  runner-token: "glrt-6bBh5-k8dHF2iavFU_Bt"
   
   # S3 cache parameters
   accesskey: "admin"

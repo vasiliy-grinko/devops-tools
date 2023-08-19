@@ -114,4 +114,4 @@ gitlab:
   gitaly:
     persistence:
       size: 5Gi
-      storageClass: "local-path"
+      storageClass: "ebs-sc"

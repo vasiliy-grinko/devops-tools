@@ -3,7 +3,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: harbor
-  namespace: system-harbor
+  namespace: harbor
   annotations:
     kubernetes.io/ingress.class: "system-ingress"
 spec:
@@ -58,7 +58,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: harbor-notary
-  namespace: system-harbor
+  namespace: harbor
   annotations:
     kubernetes.io/ingress.class: "system-ingress"
 spec:

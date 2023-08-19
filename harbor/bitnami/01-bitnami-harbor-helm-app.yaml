@@ -6,7 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: system-harbor
+  project: infrastructure
   source:
     repoURL: 'https://charts.bitnami.com/bitnami'
     chart: harbor
@@ -211,7 +211,7 @@ spec:
 
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: system-harbor
+    namespace: harbor
   syncPolicy:
     automated:
       prune: true

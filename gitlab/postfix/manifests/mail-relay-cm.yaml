@@ -5,10 +5,10 @@ metadata:
   name: mail-relay-env
   namespace: gitlab
 data:
-  POSTFIX_SMTP_HELO_NAME: "gitlab.bart.team"
-  POSTFIX_MYORIGIN: "gitlab.bart.team"
-  POSTFIX_MYHOSTNAME: "gitlab.bart.team"
-  KUBER_NETWORK: "10.233.0.0/16"
+  POSTFIX_SMTP_HELO_NAME: "gitlab.vasiliy.nl"
+  POSTFIX_MYORIGIN: "gitlab.vasiliy.nl"
+  POSTFIX_MYHOSTNAME: "gitlab.vasiliy.nl"
+  KUBER_NETWORK: "10.42.0.0/16"
 ---
 apiVersion: v1
 kind: ConfigMap
