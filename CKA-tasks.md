@@ -1,30 +1,48 @@
 ## 1.
 
-Create a Deployment named `my-nginx` with image `nginx`, `3` replicas, expose it on port `80`
-Create a ConfigMap named `zoo-config` with data: `animal: monkey` and `animal: tigr`
+Create namespace named `cka`.
+In namespace `cka`, create a Deployment named `office-nginx` with image `nginx`, `3` replicas, expose it on port `80`
+In namespace `cka`, create a ConfigMap named `office-config` with data: `employee: monkey` and `age: 22`
 Mount the ocnfig map to the deployment on path /tmp/zoo
 
 ## 2
 
-Create a StatefullSet named `zoo-app` with image `nginx`, `2` replica, expose it on port `8080` with Service type `NodePort`
-Create a PersistentVolumeClaim named `zoo-pv` with size 1Gi, mount it to the StatefullSet on path `/tmp/zoo`
-Change PersistentVolumeClaim size to 2Gi
-Change mout path to  `/tmp/zoo-pv-2`
+In namespace `cka`, create a StatefullSet named `office-app` with image `nginx`, `2` replica, expose it on port `8080` with Service type `NodePort`
+In namespace `cka`, create a PersistentVolumeClaim named `office-pv` with size 1Gi, mount it to the StatefullSet on path `/tmp/office`
+Change PersistentVolumeClaim size to 3Gi
+Change mout path to  `/tmp/office-pv-2`
 
 
 ## 3
 
-Create a NetworkPolicy which allows ingress on port 5432 for pods with label `app: nginx`, ingress connections must be allowed only from 173.22.55.0/24 CIDR.
+In namespace `cka`, create a NetworkPolicy named `app-np` which allows Egress on port 5432 for pods with label `app: tvh-reg`, ingress connections must be allowed only from 143.22.75.0/24 CIDR and port 80.
 
 ## 4
 
-Create a ServiceAccount `zoo-sa`, create a Role `zoo-role`, bound the role with the ServiceAccount
-Create a pod named `zoo-pod` with image `nginx`, expose port `80` in its container and name it `http`, specify the ServiceAccount in this pod.
+In namespace `cka`, create a ServiceAccount `office-sa`, create a Role `office-role` - verbs `create`, `delete`, `list` on `pods`; bound the role with the ServiceAccount
+Create a pod named `office-pod` with image `nginx`, expose port `8080` in its container and name it `http`, specify the ServiceAccount in this pod.
 
 ## 5
 
-Create a Deployment named `my-deploy` with 2 replicas, specify anti afinity so that pods of this deployment scheduled on differenet nodes.
+In namespace `cka`, create a Deployment named `my-deploy2` with 2 replicas and image `nginx`, specify podAfinity so that pods of this deployment scheduled on the same nodes.
 
 ## 6 
 
- Create a DaemonSet named `my-ds`, make all pods of this DS scheduled on all nodes
+In namespace `cka`, create a DaemonSet named `my-ds2`, make all pods of this DS scheduled on all nodes
+
+## 7 
+
+Add label `disk: ssd` to a node.
+In namespace `cka`, create a Deployment named `my-deploy3` with 1 replicas and image `nginx`, specify nodeSelector so that pods scheduled only on nodes with label `disk: ssd`.
+
+## 8
+
+Create a file name secret.txt with the following content:
+```
+user: admin
+port: 5432
+db: prod
+password: mysupersecretpassword
+```
+In namespace `cka`, create a Secret from the file above in namespace
+
