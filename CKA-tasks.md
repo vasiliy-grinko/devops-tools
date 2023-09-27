@@ -46,3 +46,7 @@ password: mysupersecretpassword
 ```
 In namespace `cka`, create a Secret from the file above in namespace
 
+## 9
+
+Create CronJob named `my-cj`, image `nginx`, a Job should run every Satturday at 01:30 AM.
+Create Secret named `docker-repo-secret` with type `docker-registry`, provide username `vasya` and password `my-docker-pass123`. Use the secret in the CronJob created in previous step.
